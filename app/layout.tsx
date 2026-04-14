@@ -15,6 +15,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: 'Remarx Foundation | Charity & Non-Profit Platform',
   description: 'A modern, high-performance charity and non-profit foundation platform.',
+  icons: { icon: 'data:,' },
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {

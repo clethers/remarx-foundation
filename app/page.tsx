@@ -1,85 +1,27 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'motion/react';
-import { 
-  Heart, 
-  ShoppingCart, 
-  Layout, 
-  ShieldCheck, 
-  FileText, 
-  RefreshCw, 
-  CheckCircle2, 
-  Layers, 
-  MousePointer2, 
-  Zap, 
-  Globe, 
+import {
+  Heart,
+  Layout,
+  ShieldCheck,
+  FileText,
+  RefreshCw,
+  CheckCircle2,
+  Layers,
+  MousePointer2,
+  Zap,
+  Globe,
   Smartphone,
-  ChevronRight,
-  ArrowRight,
-  Menu,
-  X,
+  ShoppingCart,
   CreditCard,
   DollarSign
 } from 'lucide-react';
 import Image from 'next/image';
+import { Navbar } from './components/navbar';
+import { Footer } from './components/footer';
 
-// --- Components ---
-
-const Navbar = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-              <Heart className="text-black w-6 h-6 fill-current" />
-            </div>
-            <span className="text-white font-bold text-xl tracking-tighter uppercase">Remarx</span>
-          </div>
-          
-          <div className="hidden md:flex items-center gap-8">
-            {['Demos', 'Features', 'Shop', 'Elementor', 'Plugins'].map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="text-white/80 hover:text-white text-sm font-medium uppercase tracking-widest transition-colors">
-                {item}
-              </a>
-            ))}
-            <button className="bg-[#f05a4f] hover:bg-[#d94e44] text-white px-6 py-2 rounded-full text-sm font-bold uppercase tracking-widest transition-all transform hover:scale-105">
-              Buy Now
-            </button>
-            <ShoppingCart className="text-white w-5 h-5 cursor-pointer hover:text-[#f05a4f] transition-colors" />
-          </div>
-
-          <div className="md:hidden flex items-center">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-white">
-              {isOpen ? <X /> : <Menu />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="md:hidden bg-black/90 backdrop-blur-xl border-b border-white/10 px-4 py-6 space-y-4"
-        >
-          {['Demos', 'Features', 'Shop', 'Elementor', 'Plugins'].map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="block text-white/80 hover:text-white text-lg font-medium uppercase tracking-widest">
-              {item}
-            </a>
-          ))}
-          <button className="w-full bg-[#f05a4f] text-white px-6 py-3 rounded-full text-sm font-bold uppercase tracking-widest">
-            Buy Now
-          </button>
-        </motion.div>
-      )}
-    </nav>
-  );
-};
+// --- Page Sections ---
 
 const Hero = () => {
   return (
@@ -143,6 +85,9 @@ const DemosGrid = () => {
     { id: 4, title: 'Demo 4', img: 'https://picsum.photos/seed/demo4/800/600' },
     { id: 5, title: 'Demo 5', img: 'https://picsum.photos/seed/demo5/800/600' },
     { id: 6, title: 'Demo 6', img: 'https://picsum.photos/seed/demo6/800/600' },
+    { id: 7, title: 'Demo 7', img: 'https://picsum.photos/seed/demo7/800/600' },
+    { id: 8, title: 'Demo 8', img: 'https://picsum.photos/seed/demo8/800/600' },
+    { id: 9, title: 'Demo 9', img: 'https://picsum.photos/seed/demo9/800/600' },
   ];
 
   return (
@@ -460,32 +405,6 @@ const DonationSection = () => {
   );
 };
 
-const Footer = () => {
-  return (
-    <footer className="bg-white py-20 border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-12">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
-            <Heart className="text-white w-6 h-6 fill-current" />
-          </div>
-          <span className="text-black font-bold text-xl tracking-tighter uppercase">Remarx</span>
-        </div>
-        
-        <div className="flex gap-8">
-          {['Facebook', 'Twitter', 'Instagram', 'LinkedIn'].map((social) => (
-            <a key={social} href="#" className="text-gray-400 hover:text-black text-xs font-bold uppercase tracking-widest transition-colors">
-              {social}
-            </a>
-          ))}
-        </div>
-
-        <p className="text-gray-400 text-[10px] uppercase tracking-[0.2em]">
-          © 2026 Remarx Foundation. All rights reserved.
-        </p>
-      </div>
-    </footer>
-  );
-};
 
 export default function Home() {
   return (
